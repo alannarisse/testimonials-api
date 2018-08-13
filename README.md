@@ -11,7 +11,7 @@ This is a little api for serving testimonials to a webpage.
 ### testimonials.txt
 - the text entries are separated by <code>\n\n</code>
 
-##Install
+## Install
 to run this app...
 1. install node.js if you don't have it.
 2. download or clone this repo
