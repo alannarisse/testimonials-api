@@ -3,14 +3,14 @@ const fs = require('fs')
 
 const V = require('vaxic')
 
-// read the contents of the quotes.txt file and convert them to strings.
-const testimonialFileContents = fs.readFileSync(path.join(__dirname, 'testimonials.txt')).toString()
+// read the contents of the testimonials.txt file and convert them to strings.
+const testimonialsFileContents = fs.readFileSync(path.join(__dirname, 'testimonials.txt')).toString()
 
-// create a quotes array from the text file
+// create a testimonials array from the text file
 const testimonials = []
 
-//add all the quotes and bylines to quotes array
-quoteFileContents.split('\n\n').forEach((line) => {
+//add all the testimonials and bylines to testimonials array
+testimonialsFileContents.split('\n\n').forEach((line) => {
 	const lineParts = line.split('---')
 
 	testimonials.push({
@@ -22,11 +22,11 @@ quoteFileContents.split('\n\n').forEach((line) => {
 const app = new V()
 
 app.add('GET', '/api/testimonial', (req, res) => {
-	// return the quotes
+	// return the testimonials
 	res.writeHead(200, {
 		'Content-Type': 'application/json'
 	})
-	//get a random quote
+	//get a random testimonials
 	const randomTestimonial = testimonials[Math.floor(Math.random() * testimonials.length)]
 
 	res.end(JSON.stringify(randomTestimonial))
